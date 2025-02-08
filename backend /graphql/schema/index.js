@@ -1,11 +1,14 @@
 const { buildSchema } = require('graphql');
 const { UserSchema } = require('./user.js');
 const { AppointmentSchema } = require('./appointment.js');
+const { GroupSchema } = require("./group.js");
 
 const buildschema =  buildSchema(`
     ${UserSchema}
 
     ${AppointmentSchema}
+
+    ${GroupSchema}
 
     type rootQuery {
         
@@ -31,6 +34,8 @@ const buildschema =  buildSchema(`
         getStatistics_Successful_App: String!
         isValid(IsValid: IsValid!): Response!
         graph: Graph!
+
+        viewAllGroups: [Group!]
     }
 
     type rootMutation {
@@ -41,6 +46,8 @@ const buildschema =  buildSchema(`
         addReview(doctorId: ID!, reviewInput: ReviewInput!): Response!
 
         createAppointment(appointmentInput: AppointmentInput!): Appointment!
+    
+        createGroup: Group!
     }
 
     schema {

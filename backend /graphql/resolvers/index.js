@@ -31,6 +31,11 @@ const {
   graph,
 } = require('./appointment.js')
 
+const {
+  createGroup,
+  viewAllGroups
+} = require("./group.js");
+
   module.exports = {
     //users
     authUser: authUser,
@@ -61,4 +66,7 @@ const {
     getStatistics_Successful_App: getStatistics_Successful_App,
     isValid: isValid,
     graph: graph,
+    // groups
+    createGroup: createGroup,
+    viewAllGroups: viewAllGroups,
   };
