@@ -95,7 +95,7 @@ export default function Icons() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader plain color="warning">
-            <h4 className={classes.cardTitleWhite}>Appointments</h4>
+            <h4 className={classes.cardTitleWhite}>Talks</h4>
             <p className={classes.cardCategoryWhite}>
               Click on join to continue.
             </p>
@@ -109,13 +109,13 @@ export default function Icons() {
                   <Avatar src={doctor} className={classes.large} />
                   <StyledDoctorData>
                     <StyledH6>{userData.role == "doctor" ? elem[2].name : elem[1].name}</StyledH6>
-                    {userData.role == "doctor" ? "" : 
+                    {/* {userData.role == "doctor" ? "" : 
                     <StyledP style={{ color: "gray" }}>
                       {elem[1].specialization}
-                    </StyledP>}
+                    </StyledP>} */}
                   </StyledDoctorData>
                   <StyledDoctorData>
-                    <StyledH6>Appointment Summary</StyledH6>
+                    <StyledH6>Session Summary</StyledH6>
                     <StyledP>When:</StyledP>
                     <StyledP>{elem[3]}</StyledP>
                   </StyledDoctorData>
@@ -126,7 +126,7 @@ export default function Icons() {
                       onClick={() => {
                         localStorage.setItem("review_docID", JSON.stringify(elem[1]._id));
                         localStorage.setItem("review_patientID", JSON.stringify(elem[2]._id));
-                        window.location.href = `http://localhost:5000/?room=${elem[5]}`;
+                        window.location.href = `http://localhost:5001/?room=${elem[5]}`;
                       }}
                     >
                       <span>Join Meeting</span>{" "}

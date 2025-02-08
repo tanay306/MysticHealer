@@ -66,11 +66,11 @@ export default function UserProfile() {
     lng: "",
   });
   const [image, setImage] = useState();
-  // const [cords, setCords] = useState({
-  //   address: "",
-  //   lat: "",
-  //   lng: "",
-  // });
+  const [cords, setCords] = useState({
+    address: "",
+    lat: "",
+    lng: "",
+  });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -90,7 +90,6 @@ export default function UserProfile() {
   }, [userData]);
   const [bool, setBool] = useState(false);
   useEffect(() => {
-    console.log("0000");
     console.log(users);
     // console.log(users.location ? users.location.longitude : "");
     setPickUp({
@@ -181,7 +180,7 @@ export default function UserProfile() {
                         fullWidth: true,
                       }}
                       // value={}
-                      value={users.phoneNo ? users.phoneNo : ""}
+                      value={users.phoneNo ? users.phoneNo : "xxx-xxx-xxxx"}
                       onChange={(e) =>
                         setUsers({ ...users, phoneNo: e.target.value })
                       }
@@ -242,7 +241,7 @@ export default function UserProfile() {
                     />
                   )}
                 </GridItem> */}
-                {users && users.role == "doctor" ? (
+                {/* {users && users.role == "doctor" ? (
                   <GridItem xs={12} sm={12} md={6}>
                     <CustomInput
                       labelText="Specialization"
@@ -258,8 +257,8 @@ export default function UserProfile() {
                   </GridItem>
                 ) : (
                   ""
-                )}
-                {users && users.role == "doctor" ? (
+                )} */}
+                {/* {users && users.role == "doctor" ? (
                   <GridItem xs={12} sm={12} md={6}>
                     <CustomInput
                       labelText="Consulting Charges"
@@ -275,7 +274,7 @@ export default function UserProfile() {
                   </GridItem>
                 ) : (
                   ""
-                )}
+                )} */}
               </GridContainer>
               <br />
               <GridContainer>
@@ -341,14 +340,13 @@ export default function UserProfile() {
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
-          <Card profile>
+          {/* <Card profile>
             <CardAvatar profile>
               <div>
                 <img src={`http://localhost:5000${users.image}`} alt="..." />
               </div>
             </CardAvatar>
             <CardBody profile>
-              {/* <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6> */}
               <h4 className={classes.cardTitle}>{users ? users.name : ""}</h4>
               <p className={classes.description}>{users ? users.about : ""}</p>
               <input
@@ -361,7 +359,7 @@ export default function UserProfile() {
                 }}
               />
             </CardBody>
-          </Card>
+          </Card> */}
 
           <Card profile>
             {/* <CardBody profile> */}
@@ -373,7 +371,7 @@ export default function UserProfile() {
               // // iD={isDriver}
               // // sS={setStep}
               // mI={mapInit}
-              // coords={cords}
+              coords={cords}
             />
             {/* </CardBody> */}
           </Card>

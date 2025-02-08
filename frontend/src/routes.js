@@ -42,7 +42,7 @@ const dashboardRoutes = [
   },
   {
     path: "/appointments",
-    name: "Appointments",
+    name: "My Safe Spaces",
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
@@ -66,20 +66,20 @@ const dashboardRoutes = [
   },
   {
     path: "/doctors",
-    name: "Doctors",
+    name: "Mystic Healers",
     rtlName: "خرائط",
     icon: "person_search",
     component: MapsNew,
     layout: "/user",
   },
-  {
-    path: "/symptoms",
-    name: "Pro Feature",
-    rtlName: "خرائط",
-    icon: "person_search",
-    component: Symptoms,
-    layout: "/user",
-  },
+  // {
+  //   path: "/symptoms",
+  //   name: "Pro Feature",
+  //   rtlName: "خرائط",
+  //   icon: "person_search",
+  //   component: Symptoms,
+  //   layout: "/user",
+  // },
   {
     path: "/reviews",
     name: "",
@@ -112,14 +112,14 @@ const dashboardRoutes = [
   //   component: RTLPage,
   //   layout: "/rtl"
   // },
-  {
-    path: "/sleep-well",
-    name: "Sleep Well",
-    rtlName: "التطور للاحترافية",
-    icon: "support",
-    component: UpgradeToPro,
-    layout: "/user"
-  }
+  // {
+  //   path: "/sleep-well",
+  //   name: "Sleep Well",
+  //   rtlName: "التطور للاحترافية",
+  //   icon: "support",
+  //   component: UpgradeToPro,
+  //   layout: "/user"
+  // }
 ];
 
 export default dashboardRoutes;

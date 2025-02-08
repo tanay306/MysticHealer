@@ -172,7 +172,7 @@ export default function Dashboard() {
               <CardIcon color="success">
                 <PersonAddIcon />
               </CardIcon>
-              <p className={classes.cardCategory}>Appointments Today</p>
+              <p className={classes.cardCategory}>Solace Sancturies</p>
               <h3 className={classes.cardTitle}>{successfulApps}</h3>
             </CardHeader>
             <CardFooter stats>
@@ -189,13 +189,13 @@ export default function Dashboard() {
               <CardIcon color="danger">
                 <FormatListNumberedIcon />
               </CardIcon>
-              <p className={classes.cardCategory}>Total Appointments</p>
+              <p className={classes.cardCategory}>My Safe Space</p>
               <h3 className={classes.cardTitle}>{totalApps}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <LocalOffer />
-                Tracked from SleepSync
+                Tracked from MysticHealer
               </div>
             </CardFooter>
           </Card>
@@ -206,7 +206,7 @@ export default function Dashboard() {
               <CardIcon color="info">
                 <GroupIcon />
               </CardIcon>
-              <p className={classes.cardCategory}>Registered Doctors</p>
+              <p className={classes.cardCategory}>Registered Healers</p>
               <h3 className={classes.cardTitle}>{totalDocs}</h3>
             </CardHeader>
             <CardFooter stats>
@@ -240,9 +240,9 @@ export default function Dashboard() {
           </GridItem>
           <Card chart>
             <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>Weekly Appointments</h4>
+              <h4 className={classes.cardTitleWhite}>Weekly Talks</h4>
               <p className={classes.cardCategoryWhite}>
-                Total Appointments with doctors on our platform
+                Total safe space conversations on our platform
               </p>
             </CardHeader>
             <CardBody>
@@ -258,9 +258,9 @@ export default function Dashboard() {
         >
           <Card>
             <CardHeader color="warning">
-              <h4 className={classes.cardTitleWhite}>Upcoming Appointments</h4>
+              <h4 className={classes.cardTitleWhite}>Upcoming Talks</h4>
               <p className={classes.cardCategoryWhite}>
-                Never miss an appointment
+                Never miss a chance
               </p>
             </CardHeader>
             <CardBody>

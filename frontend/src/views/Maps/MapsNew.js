@@ -97,9 +97,9 @@ function MapsNew() {
     <React.Fragment>
       <Card>
         <CardHeader color="primary">
-          <h4 className={classes.cardTitleWhite}>Doctors</h4>
+          <h4 className={classes.cardTitleWhite}>Healers</h4>
           <p className={classes.cardCategoryWhite}>
-            Find the best doctors and medical assistants, <b>nearest to you!</b>
+            Find the best healers, <b>nearest to you!</b>
           </p>
         </CardHeader>
         <CardBody>
@@ -135,7 +135,7 @@ function MapsNew() {
                   },
                 }}
               />
-              <CustomInput
+              {/* <CustomInput
                 labelText="Search by Specialization"
                 id="name"
                 formControlProps={{
@@ -154,14 +154,14 @@ function MapsNew() {
                     }
                   },
                 }}
-              />
+              /> */}
               <StyledButton
                 fullWidth
                 color="primary"
                 onClick={() => {
                   console.log(pickUp);
                   const docArr = allDoctors.filter(
-                    (elem) => elem.location.latitude === 35.7796
+                    (elem) => elem.location.latitude === "35.787"
                   );
                   console.log(docArr);
                   console.log(docArr);
@@ -195,14 +195,14 @@ function MapsNew() {
             </CardHeader>
             <CardBody>
               <StyledIndividualDoctorPanel>
-                <span style={{ textTransform: "capitalize" }}>
+                {/* <span style={{ textTransform: "capitalize" }}>
                   Specialization:{" "}
                   {elem.specialization === null
                     ? "Not Specified"
                     : elem.specialization}
-                </span>
+                </span> */}
                 <span style={{ textTransform: "capitalize" }}>
-                  Gender: {elem.sex === null ? "NOT SPECIFIED" : elem.sex}
+                  Gender: {elem.sex === null ? "N/A" : elem.sex}
                 </span>
                 <span
                   style={{
@@ -214,10 +214,10 @@ function MapsNew() {
                   <span>
                     Age:{" "}
                     {elem.age === null || elem.age === ""
-                      ? "Not Specified"
+                      ? "N/A"
                       : elem.age}
                   </span>
-                  <span
+                  {/* <span
                     style={{
                       color: "#9c27b0",
                       fontWeight: 800,
@@ -225,9 +225,9 @@ function MapsNew() {
                   >
                     ${" "}
                     {elem.age === null || elem.age === ""
-                      ? "Not Specified"
+                      ? "N/A"
                       : elem.charge}
-                  </span>
+                  </span> */}
                 </span>
                 <span
                   style={{
@@ -238,7 +238,7 @@ function MapsNew() {
                     margin: "4px 0",
                   }}
                 >
-                  About: {elem.about === "" ? "Not Specified" : elem.about}
+                  About: {elem.about === "" ? "N/A" : elem.about}
                 </span>
               </StyledIndividualDoctorPanel>
               <StyledButton
@@ -249,7 +249,7 @@ function MapsNew() {
                   window.location.reload();
                 }}
               >
-                Book an Appointment
+                Talk to Healer
                 {/* <Link to={`/bookAppointment/3`} style={{ color: '#fff' }}>
                       Book an Appointment
                     </Link> */}

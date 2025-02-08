@@ -206,11 +206,10 @@ export default function TypographyPage() {
 
   function getSteps() {
     return [
-      "Choose a Doctor",
+      "Choose a Healer",
       "Choose Date and Time",
-      "Write a Description of your Illness",
-      "Upload Medical Record",
-      "Payment",
+      "Voice your thoughts",
+      "Upload Document (optional)",
     ];
   }
 
@@ -238,7 +237,7 @@ export default function TypographyPage() {
             {/* <Avatar src={userImg} className={classes.avatar}/> */}
             <h5 style={{ margin: 8 }}>
               You have chosen {doctor.name} to assist you. Kindly complete the
-              remaining steps to confirm appointment
+              remaining steps to confirm session
             </h5>
           </form>
         );
@@ -247,7 +246,7 @@ export default function TypographyPage() {
           <form className={classes.container} noValidate>
             <TextField
               id="datetime-local"
-              label="Appointment Date and Time"
+              label="Session Date and Time"
               type="datetime-local"
               defaultValue={new Date()}
               className={classes.textField}
@@ -298,7 +297,7 @@ export default function TypographyPage() {
         handleGift();
         return (
           <h3>
-            Please pay the doctor fees in order to confirm your appointment.
+            Please pay the doctor fees in order to confirm your session.
           </h3>
         );
       default:
@@ -360,7 +359,7 @@ export default function TypographyPage() {
         if (file) {
           await api.uploadDoc(data._id, file);
         }
-        return <Notify msg={`Appointment scheduled with ${doctor.name}`} />;
+        return <Notify msg={`Session scheduled with ${doctor.name}`} />;
       } catch (error) {
         console.log(error);
       }
@@ -385,10 +384,10 @@ export default function TypographyPage() {
       <Card>
         <CardHeader color="warning">
           <h4 className={classes.cardTitleWhite}>
-            Book an instant appointment
+            Book an instant session
           </h4>
           <p className={classes.cardCategoryWhite}>
-            Kindly fill the form to book an appointment
+            Kindly fill the form to book a session
           </p>
         </CardHeader>
         <CardBody>
@@ -462,18 +461,18 @@ export default function TypographyPage() {
               <StyledRightComponent>
                 <Avatar src={userImg} className={classes.avatar} />
                 <h3 style={{ margin: 0, marginLeft: 22 }}>{doctor.name}</h3>
-                <h6 style={{ margin: 0, marginLeft: 22 }}>
+                {/* <h6 style={{ margin: 0, marginLeft: 22 }}>
                   {doctor.specialization === null
                     ? "NOT SPECIFIED"
                     : doctor.specialization}
-                </h6>
+                </h6> */}
                 <p style={{ margin: 0, marginLeft: 22 }}>{doctor.about}</p>
               </StyledRightComponent>
             </GridItem>
           </GridContainer>
         </CardBody>
       </Card>
-      <h3 style={{ marginLeft: 6 }}>Other Doctors devoted to Health</h3>
+      <h3 style={{ marginLeft: 6 }}>Other Healers for you!</h3>
       <StyledDoctorContainer>
         {allDoctors.map((elem) => (
           <Card>
@@ -495,14 +494,14 @@ export default function TypographyPage() {
             </CardHeader>
             <CardBody>
               <StyledIndividualDoctorPanel>
-                <span style={{ textTransform: "capitalize" }}>
+                {/* <span style={{ textTransform: "capitalize" }}>
                   Specialization:{" "}
                   {elem.specialization === null
                     ? "Not Specified"
                     : elem.specialization}
-                </span>
+                </span> */}
                 <span style={{ textTransform: "capitalize" }}>
-                  Gender: {elem.sex === null ? "NOT SPECIFIED" : elem.sex}
+                  Gender: {elem.sex === null || elem.sex === "" ? "N/A" : elem.sex}
                 </span>
                 <span
                   style={{
@@ -514,10 +513,10 @@ export default function TypographyPage() {
                   <span>
                     Age:{" "}
                     {elem.age === null || elem.age === ""
-                      ? "Not Specified"
+                      ? "N/A"
                       : elem.age}
                   </span>
-                  <span
+                  {/* <span
                     style={{
                       color: "#ff9800",
                       fontWeight: 800,
@@ -527,7 +526,7 @@ export default function TypographyPage() {
                     {elem.age === null || elem.age === ""
                       ? "Not Specified"
                       : elem.charge}
-                  </span>
+                  </span> */}
                 </span>
                 <span
                   style={{
@@ -538,7 +537,7 @@ export default function TypographyPage() {
                     margin: "4px 0",
                   }}
                 >
-                  About: {elem.about === "" ? "Not Specified" : elem.about}
+                  About: {elem.about === "" ? "N/A" : elem.about}
                 </span>
               </StyledIndividualDoctorPanel>
               <StyledButton
@@ -550,7 +549,7 @@ export default function TypographyPage() {
                   handleReset();
                 }}
               >
-                Book an Appointment
+                Book a Session
                 {/* <Link to={`/bookAppointment/3`} style={{ color: '#fff' }}>
                   Book an Appointment
                 </Link> */}

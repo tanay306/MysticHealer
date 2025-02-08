@@ -138,9 +138,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="info">
-            <h4 className={classes.cardTitleWhite}>Upcoming Appointments</h4>
+            <h4 className={classes.cardTitleWhite}>Upcoming Talks</h4>
             <p className={classes.cardCategoryWhite}>
-              Here is a list of your upcoming appointments
+              Here is a list of your upcoming talks
             </p>
           </CardHeader>
           <CardBody>
@@ -148,12 +148,12 @@ export default function TableList() {
               tableHeaderColor="info"
               tableHead={[
                 "ID",
-                `${userData.role === "doctor" ? "Patient" : "Doctor"} Name`,
+                `${userData.role === "doctor" ? "Patient" : "Healer"} Name`,
                 ,
                 "Date/Time",
                 "Description",
                 "Status",
-                "View Report",
+                "Additional Document",
               ]}
               tableData={uApp}
             />
@@ -163,9 +163,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="info">
-            <h4 className={classes.cardTitleWhite}>Previous Appointments</h4>
+            <h4 className={classes.cardTitleWhite}>Previous Talks</h4>
             <p className={classes.cardCategoryWhite}>
-              Here is a list of your previous appointments
+              Here is a list of your previous talks
             </p>
           </CardHeader>
           <CardBody>
@@ -173,12 +173,12 @@ export default function TableList() {
               tableHeaderColor="info"
               tableHead={[
                 "ID",
-                `${userData.role === "doctor" ? "Patient" : "Doctor"} Name`,
+                `${userData.role === "doctor" ? "Patient" : "Healer"} Name`,
                 ,
                 "Date/Time",
                 "Description",
                 "Status",
-                "View Report",
+                "Additional Document",
               ]}
               tableData={pApp}
             />

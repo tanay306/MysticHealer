@@ -11,7 +11,7 @@ function usePayment() {
   // const [orderAmount, setOrderAmount] = useState(50);
   const [myColor, setMyColor] = useState("#ffa726");
   const [success, setSuccess] = useState(false);
-  const myAppName = "SleepSync";
+  const myAppName = "MysticHealer";
   const myDescription = "";
 
   const paymentHandler = async (orderAmount) => {
