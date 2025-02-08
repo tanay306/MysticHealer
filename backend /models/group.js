@@ -9,7 +9,15 @@ const groupSchema = mongoose.Schema({
         type: String,
         default: "0"
     },
-    
+    meetType: {
+        type: String,
+        default: "",
+    },
+    topic: {
+        type: String,
+        default: "",
+    }
+
 }, {
     timestamps: true,
 });
