@@ -38,11 +38,6 @@ const registerUser = async (args, { req, redis }) => {
       email: args.userInput.email,
       password: args.userInput.password,
       role: args.userInput.role,
-      location: {
-        latitude: "35.787",
-        logitude: "-78.6699",
-      },
-      phone: "xxx-xxx-xxxx",
     });
 
     if (user) {

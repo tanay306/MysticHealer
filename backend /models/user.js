@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema(
     },
     phoneNo: {
       type: String,
-      default: "phone"
+      default: "xxx-xxx-xxxx"
     },
     email: {
       type: String,
@@ -66,11 +66,11 @@ const userSchema = mongoose.Schema(
     location: {
       latitude : {
         type: String,
-        default: "",
+        default: "35.787",
       },
       longitude: {
         type: String,
-        default: "",
+        default: "-78.6699",
       },
     },
     image: {
