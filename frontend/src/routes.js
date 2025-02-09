@@ -113,14 +113,14 @@ const dashboardRoutes = [
   //   component: RTLPage,
   //   layout: "/rtl"
   // },
-  // {
-  //   path: "/sleep-well",
-  //   name: "Sleep Well",
-  //   rtlName: "التطور للاحترافية",
-  //   icon: "support",
-  //   component: UpgradeToPro,
-  //   layout: "/user"
-  // }
+  {
+    path: "/ft",
+    name: "Oracle",
+    rtlName: "التطور للاحترافية",
+    icon: "support",
+    component: Reviews,
+    layout: "/user"
+  }
 ];
 
 export default dashboardRoutes;
