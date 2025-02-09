@@ -210,6 +210,7 @@ export default function TypographyPage() {
       "Choose Date and Time",
       "Voice your thoughts",
       "Upload Document (optional)",
+      "Payment"
     ];
   }
 

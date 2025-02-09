@@ -15,7 +15,7 @@ function usePayment() {
   const myDescription = "";
 
   const paymentHandler = async (orderAmount) => {
-    const API_URL = "http://localhost:5000/";
+    const API_URL = "http://localhost:5001/";
     // e.preventDefault();
     const orderUrl = `${API_URL}order`;
     const response = await axios.get(orderUrl, {

@@ -4,7 +4,7 @@ exports.getPaymentOrder = (req, res) => {
   try {
     const options = {
       amount: req.query.amount * 100, // amount == Rs 10
-      currency: "INR",
+      currency: "USD",
       receipt: "receipt#1",
       payment_capture: 0,
     };
@@ -38,7 +38,7 @@ exports.postPayment = (req, res) => {
      url: `https://${process.env.RAZOR_PAY_KEY_ID}:${process.env.RAZOR_PAY_KEY_SECRET}@api.razorpay.com/v1/payments/${req.params.paymentId}/capture`,
      form: {
         amount: 10 * 100, // amount == Rs 10 // Same As Order amount
-        currency: "INR",
+        currency: "USD",
       },
     },
    
