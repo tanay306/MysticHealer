@@ -888,6 +888,51 @@ const api = {
     // });
     return res.data.response;
   },
+  predictWearable: async (file) => {
+    console.log('DATA FILE', file);
+
+    // Create FormData object
+    let formData = new FormData();
+    formData.append("file", file);  // Append only the first file if multiple are selected
+
+    // Axios configuration
+    var config = {
+      method: "post",
+      url: "http://127.0.0.1:8080/mental-health/predict/",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*"
+      },
+      data: formData,  // Pass FormData object
+    };
+
+    try {
+        const res = await axios(config);
+        return res.data; // Return actual API response
+    } catch (error) {
+        console.error("Error uploading file:", error);
+        throw error;
+    }
+  },
+
+  predictTest: async () => {
+    var config = {
+      method: "get",
+      url: "http://localhost:8080/test",
+      headers: {
+        'Content-type': 'application-json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+
+    try {
+        const res = await axios(config);
+        return res.data; 
+    } catch (error) {
+        console.error("Error uploading file:", error);
+        throw error;
+    }
+  },
 };
 
 export default api;
