@@ -195,12 +195,12 @@ function MapsNew() {
             </CardHeader>
             <CardBody>
               <StyledIndividualDoctorPanel>
-                {/* <span style={{ textTransform: "capitalize" }}>
-                  Specialization:{" "}
+                <span style={{ textTransform: "capitalize" }}>
+                  Experience:{" "}
                   {elem.specialization === null
                     ? "Not Specified"
-                    : elem.specialization}
-                </span> */}
+                    : elem.specialization + " Years"}
+                </span>
                 <span style={{ textTransform: "capitalize" }}>
                   Gender: {elem.sex === null ? "N/A" : elem.sex}
                 </span>
@@ -217,7 +217,7 @@ function MapsNew() {
                       ? "N/A"
                       : elem.age}
                   </span>
-                  {/* <span
+                  <span
                     style={{
                       color: "#9c27b0",
                       fontWeight: 800,
@@ -227,9 +227,9 @@ function MapsNew() {
                     {elem.age === null || elem.age === ""
                       ? "N/A"
                       : elem.charge}
-                  </span> */}
+                  </span>
                 </span>
-                <span
+                {/* <span
                   style={{
                     borderTop: "solid",
                     borderColor: "#ccc",
@@ -239,7 +239,7 @@ function MapsNew() {
                   }}
                 >
                   About: {elem.about === "" ? "N/A" : elem.about}
-                </span>
+                </span> */}
               </StyledIndividualDoctorPanel>
               <StyledButton
                 fullWidth
@@ -254,7 +254,7 @@ function MapsNew() {
                       Book an Appointment
                     </Link> */}
               </StyledButton>
-              <StyledButton
+              {/* <StyledButton
                 style={{ marginTop: -12 }}
                 fullWidth
                 color="primary"
@@ -263,10 +263,10 @@ function MapsNew() {
                 }}
               >
                 View Profile
-                {/* <Link to={`/bookAppointment/3`} style={{ color: '#fff' }}>
+                <Link to={`/bookAppointment/3`} style={{ color: '#fff' }}>
                       Book an Appointment
-                    </Link> */}
-              </StyledButton>
+                    </Link>
+              </StyledButton> */}
             </CardBody>
           </Card>
         ))}

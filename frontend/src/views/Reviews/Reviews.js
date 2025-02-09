@@ -16,7 +16,7 @@ const Reviews = () => {
     const [userData, setUserData] = user;
 
     const [ phase1, setPhase1 ] = useState(0);
-    const [ phase2, setPhase2 ] = useState(0);
+    const [ phase2, setPhase2 ] = useState(1);
     const [ phase3, setPhase3 ] = useState(0);
 
     if(userData.role === 'doctor'){
@@ -50,14 +50,19 @@ const Reviews = () => {
     };
 
     return(
-        <div>
+        <div style={{
+            width: '100%', height: '70vh', display: "flex", flexDirection: 'row', justifyContent: "center", alignItems: "center"
+        }}>
             <div>
-                {phase1 === 0 && (<StyledFileInput
+                {phase1 === 0 && phase2 === 0 && phase3 === 0 && (<div style={{ textAlign: "center" }}>
+                    <div>Your wearable device can do much more!</div>
+                    <StyledFileInput
                     type="file"
                     placeholder="Upload File"
                     variant="outlined"
                     onChange={apiData}
-                    />)}
+                    />
+                </div>)}
             </div>
             <div>
                 {phase1 === 1 && phase2 === 0 && phase3 === 0 && (<div>xxx</div>)}
@@ -197,7 +202,7 @@ const StyledFileInput = styled.input`
   text-align: center !important;
   background-color: #DDD;
   cursor: pointer;
-  margin: auto;
+  margin: 12px auto;
 `;
 
 const Input = styled.input`

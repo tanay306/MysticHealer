@@ -462,11 +462,11 @@ export default function TypographyPage() {
               <StyledRightComponent>
                 <Avatar src={userImg} className={classes.avatar} />
                 <h3 style={{ margin: 0, marginLeft: 22 }}>{doctor.name}</h3>
-                {/* <h6 style={{ margin: 0, marginLeft: 22 }}>
+                <h6 style={{ margin: 0, marginLeft: 22 }}>
                   {doctor.specialization === null
                     ? "NOT SPECIFIED"
-                    : doctor.specialization}
-                </h6> */}
+                    : doctor.specialization + " years of experience"}
+                </h6>
                 <p style={{ margin: 0, marginLeft: 22 }}>{doctor.about}</p>
               </StyledRightComponent>
             </GridItem>
@@ -495,12 +495,12 @@ export default function TypographyPage() {
             </CardHeader>
             <CardBody>
               <StyledIndividualDoctorPanel>
-                {/* <span style={{ textTransform: "capitalize" }}>
-                  Specialization:{" "}
+                <span style={{ textTransform: "capitalize" }}>
+                  Experience:{" "}
                   {elem.specialization === null
                     ? "Not Specified"
-                    : elem.specialization}
-                </span> */}
+                    : elem.specialization + " Years"}
+                </span>
                 <span style={{ textTransform: "capitalize" }}>
                   Gender: {elem.sex === null || elem.sex === "" ? "N/A" : elem.sex}
                 </span>
@@ -517,7 +517,7 @@ export default function TypographyPage() {
                       ? "N/A"
                       : elem.age}
                   </span>
-                  {/* <span
+                  <span
                     style={{
                       color: "#ff9800",
                       fontWeight: 800,
@@ -527,9 +527,9 @@ export default function TypographyPage() {
                     {elem.age === null || elem.age === ""
                       ? "Not Specified"
                       : elem.charge}
-                  </span> */}
+                  </span>
                 </span>
-                <span
+                {/* <span
                   style={{
                     borderTop: "solid",
                     borderColor: "#ccc",
@@ -539,7 +539,7 @@ export default function TypographyPage() {
                   }}
                 >
                   About: {elem.about === "" ? "N/A" : elem.about}
-                </span>
+                </span> */}
               </StyledIndividualDoctorPanel>
               <StyledButton
                 fullWidth
