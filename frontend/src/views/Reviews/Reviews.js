@@ -6,7 +6,7 @@ import api from 'utils/api';
 
 import { useHistory } from 'react-router-dom';
 import {GlobalContext} from '../../GlobalContext';
-import { Button } from "@material-ui/core";
+import Button from "components/CustomButtons/Button.js";
 
 const Reviews = () => {
     const history = useHistory();
@@ -16,37 +16,101 @@ const Reviews = () => {
     const [userData, setUserData] = user;
 
     const [ phase1, setPhase1 ] = useState(0);
-    const [ phase2, setPhase2 ] = useState(1);
+    const [ phase2, setPhase2 ] = useState(0);
     const [ phase3, setPhase3 ] = useState(0);
+    const [ phase4, setPhase4 ] = useState(0);
+    const [ phase5, setPhase5 ] = useState(0);
 
     if(userData.role === 'doctor'){
         history.push('/user/dashboard'); 
     }
 
     const apiData = () => {
+        setFile(true);
         setTimeout(() => {
             setPhase1(1);
         }, 4000);
 
         setTimeout(() => {
             setPhase2(1);
-        }, 8000);
+        }, 10000);
     };
 
     const [age, setAge] = useState('18');
+    const [income, setIncome] = useState("0");
+    const [alco, setAlco] = useState("0");
 
     const [choice, setChoice] = useState('');
+    const [file, setFile] = useState(false);
+
+    const [maritalStatus, setMaritalStatus] = useState("");
+    const [education, setEducation] = useState("");
+    const [children, setChildren] = useState("");
+    const [smoking, setSmoking] = useState("");
+    const [physicalActivity, setPhysicalActivity] = useState("");
+    const [employment, setEmployment] = useState("");
 
     const handleChangeChoice = (event) => {
         setChoice(event.target.value);
     };
 
+    const handleChangeChoiceIncome = (event) => {
+        setIncome(event.target.value);
+    };
+
+    const handleChangeChoiceAlco = (event) => {
+        setAlco(event.target.value);
+    };
+
+    const handleChangeMaritalStatus = (event) => {
+        setMaritalStatus(event.target.value);
+      };
+    
+      const handleChangeEducation = (event) => {
+        setEducation(event.target.value);
+      };
+    
+      const handleChangeChildren = (event) => {
+        setChildren(event.target.value);
+      };
+    
+      const handleChangeSmoking = (event) => {
+        setSmoking(event.target.value);
+      };
+    
+      const handleChangePhysicalActivity = (event) => {
+        setPhysicalActivity(event.target.value);
+      };
+    
+      const handleChangeEmployment = (event) => {
+        setEmployment(event.target.value);
+      };    
+
+
     const formSubmitHandler = () => {
-        setPhase3(1);
-        setPhase2(0);
-        setTimeout(() => {
-            history.push('/user/healers');
-        }, 4000);
+        if (income === '3' && alco === '4') {
+            setPhase3(1);
+            setPhase2(0);
+
+            setTimeout(() => {
+                setPhase5(1);
+            }, 5000);            
+            
+            setTimeout(() => {
+                history.push('/user/dashboard');
+            }, 10000);
+        } else {
+            setPhase3(1);
+            setPhase2(0);
+
+            setTimeout(() => {
+                setPhase4(1);
+            }, 5000);
+
+            setTimeout(() => {
+                history.push('/user/healers');
+            }, 10000);
+        }
     };
 
     return(
@@ -55,20 +119,22 @@ const Reviews = () => {
         }}>
             <div>
                 {phase1 === 0 && phase2 === 0 && phase3 === 0 && (<div style={{ textAlign: "center" }}>
-                    <div>Your wearable device can do much more!</div>
-                    <StyledFileInput
-                    type="file"
-                    placeholder="Upload File"
-                    variant="outlined"
-                    onChange={apiData}
-                    />
+                    <div style={{ fontSize: 24 }}>Your wearable device can do much more!</div>
+                    <FileUploadWrapper file={file}>
+                        <HiddenFileInput type="file" id="fileInput" onChange={apiData}/>
+                        <CustomLabel htmlFor="fileInput">Choose File</CustomLabel>
+                    </FileUploadWrapper>
                 </div>)}
             </div>
             <div>
-                {phase1 === 1 && phase2 === 0 && phase3 === 0 && (<div>xxx</div>)}
+                {phase1 === 1 && phase2 === 0 && phase3 === 0 && (<StyledAnimationText>
+                    Your recent activity trends caught our attention. A few quick questions can help fine-tune things for you.
+                </StyledAnimationText>)}
             </div>
             <div>
-                {phase2 === 1 && (<div>
+                {phase2 === 1 && (<><div style={{
+                display: 'grid', gridTemplateColumns: "repeat(2, 300px)"
+            }}> 
                     <div>
                         <Container>
                             <Label htmlFor="textInput">Age:</Label>
@@ -84,7 +150,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Marital Status:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={maritalStatus} onChange={handleChangeMaritalStatus}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">Single</Option>
                             <Option value="option2">Divorced</Option>
@@ -96,7 +162,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Education:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={education} onChange={handleChangeEducation}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">High School</Option>
                             <Option value="option2">Bachelors</Option>
@@ -108,7 +174,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Children:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={children} onChange={handleChangeChildren}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">0</Option>
                             <Option value="option2">1</Option>
@@ -120,7 +186,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Smoking:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={smoking} onChange={handleChangeSmoking}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">Yes</Option>
                             <Option value="option2">No</Option>
@@ -131,7 +197,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Physical Activity:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={physicalActivity} onChange={handleChangePhysicalActivity}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">Sedantary</Option>
                             <Option value="option2">Moderate</Option>
@@ -144,7 +210,7 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Employment:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
+                        <Select id="selectInput" value={employment} onChange={handleChangeEmployment}>
                             <Option value="">-- Select an option --</Option>
                             <Option value="Single">Full Time</Option>
                             <Option value="option2">Part Time</Option>
@@ -156,31 +222,47 @@ const Reviews = () => {
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Income:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
-                            <Option value="">-- Select an option --</Option>
-                            <Option value="Single">$0 - $30k</Option>
-                            <Option value="option2">$30k - $60k</Option>
-                            <Option value="option3">$60k+</Option>
-                            <Option value="option3">Prefer Not to say</Option>
+                        <Select id="selectInput" value={income} onChange={handleChangeChoiceIncome}>
+                            <Option value="0">-- Select an option --</Option>
+                            <Option value="1">$0 - $30k</Option>
+                            <Option value="2">$30k - $60k</Option>
+                            <Option value="3">$60k+</Option>
+                            <Option value="4">Prefer Not to say</Option>
                         </Select>
                     </Container>
                     </div>
                     <div>
                     <Container>
                         <Label htmlFor="selectInput">Alchohol:</Label>
-                        <Select id="selectInput" value={choice} onChange={handleChangeChoice}>
-                            <Option value="">-- Select an option --</Option>
-                            <Option value="Single">None</Option>
-                            <Option value="option2">Low</Option>
-                            <Option value="option3">Medium</Option>
-                            <Option value="option3">High</Option>
+                        <Select id="selectInput" value={alco} onChange={handleChangeChoiceAlco}>
+                            <Option value="0">-- Select an option --</Option>
+                            <Option value="1">None</Option>
+                            <Option value="2">Low</Option>
+                            <Option value="3">Medium</Option>
+                            <Option value="4">High</Option>
                         </Select>
                     </Container>
                     </div>
-                    <Button onClick={formSubmitHandler}>Submit</Button>
-                </div>)}
+                </div>
+                <Button color="primary" onClick={formSubmitHandler} style={{ margin: '20px' }}>Submit</Button>
+                </>
+                )}
                 <div>
-                    {phase3 === 1 && (<div>aaa</div>)}
+                    {phase3 === 1 && phase4 === 0 && phase5 === 0 && (<StyledAnimationText>
+                        Analyzing
+                    </StyledAnimationText>)}
+                </div>
+                <div>
+                    {phase5 === 1 && phase3 === 1 && (<StyledAnimationText>
+                        You're on track! That was just a standard verification. Redirecting you to your dashboard.
+                    </StyledAnimationText>)}
+                </div>
+                <div>
+                    {phase4 === 1 && phase3 === 1 && (<div>
+                        <StyledAnimationText>
+                        This could be a good time to explore support options. Redirecting you to a resource where you can connect with someone.
+                        </StyledAnimationText>
+                    </div>)}
                 </div>
             </div>
         </div>
@@ -189,20 +271,42 @@ const Reviews = () => {
 
 export default Reviews;
 
-const StyledFileInput = styled.input`
+const FileUploadWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; /* Adjust width as needed */
+  height: 100px; /* Adjust height as needed */
+  border: 1px dashed #bbb;
   border-radius: 10px;
-  padding: 12px;
-  width: 100%;
-  font-family: calibri;
-  width: 200px;
-  padding: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border: 1px dashed #BBB;
-  text-align: center !important;
-  background-color: #DDD;
+  background-color: #ddd;
+  margin: 26px auto; /* Center horizontally */
   cursor: pointer;
-  margin: 12px auto;
+
+  opacity: 1; 
+    animation: ${props => props.file && `fadeIn 2s ease-in-out forwards`};
+    font-size: 24px;
+
+    @keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+    }
+`;
+
+const HiddenFileInput = styled.input`
+  display: none; /* Hide the default file input */
+`;
+
+const CustomLabel = styled.label`
+  font-family: Calibri, sans-serif;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
 `;
 
 const Input = styled.input`
@@ -252,3 +356,18 @@ const Select = styled.select`
 `;
 
 const Option = styled.option``;
+
+const StyledAnimationText = styled.div`
+    opacity: 0; 
+    animation: fadeIn 2s ease-in-out forwards;
+    font-size: 24px;
+
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+`;
