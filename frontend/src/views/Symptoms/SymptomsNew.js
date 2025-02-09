@@ -21,12 +21,15 @@ import api from "../../utils/api";
 import { GlobalContext } from "../../GlobalContext";
 import Notify from "notification/Notify";
 
+import community from '../../assets/img/community.png';
+import customer from '../../assets/img/customers.png';
+
 const useStyles = makeStyles({
   ...styles,
   large: {
     width: 125,
     height: 125,
-    padding: 2,
+    padding: 16,
     borderRadius: "50%",
     border: "2px solid #ff9800",
   },
@@ -103,7 +106,7 @@ export default function SymptomsNew() {
                 <StyledDoctorDataContainer>
                   {console.log(elem)}
                   {console.log("elem", userData.role)}
-                  {/* <Avatar src={doctor} className={classes.large} /> */}
+                  <Avatar src={elem[2] == "Peer Support" ? community : customer} className={classes.large} />
                   <StyledH6Mod >{elem[2]}</StyledH6Mod>
                   <StyledDoctorData>
                     <StyledH6>{userData.role == "doctor" ? elem[2].name : elem[1].name}</StyledH6>
@@ -111,6 +114,9 @@ export default function SymptomsNew() {
                     <StyledP style={{ color: "gray" }}>
                       {elem[1].specialization}
                     </StyledP>} */}
+                  </StyledDoctorData>
+                  <StyledDoctorData>
+                    <StyledH6>{elem[3]} participants</StyledH6>
                   </StyledDoctorData>
                   <StyledDoctorData>
                     <StyledH6>Session Topic</StyledH6>
@@ -133,20 +139,20 @@ export default function SymptomsNew() {
                         />
                       </span>
                     </CustomButton>
-                    <CustomButton
+                    {/* <CustomButton
                       fullWidth
                       color="danger"
                       onClick={() => {
                         // console.log("Notif");
                         // return <Notify msg={"MSSG"} />;
-                        canceler(elem[5]);
+                        canceler(elem[3]);
                       }}
                     >
-                      Cancel Appointment{" "}
+                      {elem[3]} participants
                       <CloseIcon
                         style={{ marginLeft: 8, verticalAlign: "middle" }}
                       />
-                    </CustomButton>
+                    </CustomButton> */}
                   </StyledDoctorData>
                 </StyledDoctorDataContainer>
               ))}
@@ -182,6 +188,8 @@ const StyledH6 = styled.h6`
 const StyledH6Mod = styled.h2`
     vertical-align: middle;
     margin: auto 0px !important;
+    text-transform: uppercase;
+    letter-spacing: 4px !important;
 `;
 
 const StyledP = styled.p`
