@@ -66,7 +66,7 @@ const dashboardRoutes = [
     layout: "/user",
   },
   {
-    path: "/doctors",
+    path: "/healers",
     name: "Mystic Healers",
     rtlName: "خرائط",
     icon: "person_search",
