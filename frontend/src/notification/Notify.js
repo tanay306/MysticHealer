@@ -9,7 +9,7 @@ function Notify(props) {
  
     const buttonClick = () => {
         addNotification({
-            title: 'Notification from SleepSync',
+            title: 'Notification from MysticHealer',
             subtitle: '',
             message: props.msg,
             theme: 'darkblue',
