@@ -21,20 +21,17 @@ const Reviews = () => {
         history.push('/user/dashboard'); 
     }
 
-    const apiData = async (file) => {
-        // try {
-        //     if (!file || file.length === 0) {
-        //         console.error("No file selected");
-        //         return;
-        //     }
-        //     const response = await api.predictWearable(file[0]);  // Pass only the first file
-        //     console.log("API Response:", response);
-        // } catch (error) {
-        //     console.error("Error calling API:", error);
-        // }
-        const response = await api.predictTest();  // Pass only the first file
-        console.log("API Response:", response);
-
+    const apiData = async () => {
+        try {
+            if (!file || file.length === 0) {
+                console.error("No file selected");
+                return;
+            }
+            const response = 1;
+            console.log("API Response:", response);
+        } catch (error) {
+            console.error("Error calling API:", error);
+        }
     };
 
     return(
@@ -46,8 +43,7 @@ const Reviews = () => {
                 onChange={(e) => {
                     const files = e.target.files;
                     if (files.length > 0) {
-                        setFile(files[0]); // Store only the first file
-                        apiData(files);    // Pass files to API function
+                        setFile(files);
                     } else {
                         console.error("No file selected.");
                     }

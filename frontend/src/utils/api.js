@@ -898,40 +898,36 @@ const api = {
     // Axios configuration
     var config = {
       method: "post",
-      url: "http://127.0.0.1:8080/mental-health/predict/",
+      url: "http://localhost:8080/predict",
       headers: {
         "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": "*"
       },
-      data: formData,  // Pass FormData object
+      data: formData,
     };
 
-    try {
-        const res = await axios(config);
-        return res.data; // Return actual API response
-    } catch (error) {
-        console.error("Error uploading file:", error);
-        throw error;
-    }
+    const res = await axios(config);
+    return res.data.response;
   },
 
   predictTest: async () => {
-    var config = {
-      method: "get",
-      url: "http://localhost:8080/test",
-      headers: {
-        'Content-type': 'application-json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    };
+    // var config = {
+    //   method: "get",
+    //   url: "http://localhost:8080/test",
+    //   headers: {
+    //     'Content-Type': 'application-json',
+    //   },
+    // };
 
-    try {
-        const res = await axios(config);
-        return res.data; 
-    } catch (error) {
-        console.error("Error uploading file:", error);
-        throw error;
-    }
+    // try {
+    //     const res = await axios(config);
+    //     return JSON({"res": 1});
+    // } catch (error) {
+    //     console.error("Error:", error);
+    //     throw error;
+    // }
+
+    return JSON({"res": 1});
   },
 };
 
