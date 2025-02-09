@@ -19,6 +19,7 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 import Symptoms from "views/Symptoms/Symptoms";
+import SymptomsNew from "views/Symptoms/SymptomsNew";
 import Reviews from "views/Reviews/Reviews";
 import DoctorProfile from "views/DoctorProfile/DoctorProfile";
 
@@ -72,14 +73,14 @@ const dashboardRoutes = [
     component: MapsNew,
     layout: "/user",
   },
-  // {
-  //   path: "/symptoms",
-  //   name: "Pro Feature",
-  //   rtlName: "خرائط",
-  //   icon: "person_search",
-  //   component: Symptoms,
-  //   layout: "/user",
-  // },
+  {
+    path: "/solace",
+    name: "Sancturies of Solace",
+    rtlName: "خرائط",
+    icon: "person_search",
+    component: SymptomsNew,
+    layout: "/user",
+  },
   {
     path: "/reviews",
     name: "",

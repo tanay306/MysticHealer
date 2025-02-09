@@ -4,6 +4,29 @@ import React, { useContext, useState } from "react";
 const url = "http://localhost:5001/graphql";
 
 const api = {
+  viewAllGroups: async () => {
+    const data = await axios.post(
+      url,
+      {
+        query: `
+              query {
+                viewAllGroups {
+                  meetId
+                  topic
+                  meetType
+                  numParticipants
+                }
+              }
+            `,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return data.data.data.viewAllGroups;
+  },
   authUser: async (email, password) => {
     const data = await axios.post(
       url,
